@@ -1,8 +1,9 @@
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import crypto from 'crypto';
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-mongo";
+const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/project-auth';
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.Promise = Promise;
 
@@ -12,13 +13,38 @@ mongoose.Promise = Promise;
 const port = process.env.PORT || 8080;
 const app = express();
 
+import routeTest from './routes/route';
+import userRoute from './routes/users';
+
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+  if (mongoose.connection.readyState === 1) {
+    next();
+  } else {
+    res.status(503).json({ error: 'Database is not responding' });
+  }
+});
+
+const authenticateUser = async (req, res, next) => {
+  const user = await User.findOne({ accessToken: req.header('Authorization') });
+
+  if (user) {
+    req.user = user;
+    next();
+  } else {
+    res.status(401).json({ loggedOut: true });
+  }
+};
+
+app.use('/', routeTest);
+app.use('/', userRoute);
+
 // Start defining your routes here
-app.get("/", (req, res) => {
-  res.send("Hello Technigo!");
+app.get('/', (req, res) => {
+  res.send('Hello Technigo!');
 });
 
 // Start the server
