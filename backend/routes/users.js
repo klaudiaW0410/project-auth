@@ -97,7 +97,7 @@ router.get('/secrets', authenticateUser);
 router.get('/secrets', authenticateUser, (req, res) => {
   const { userName } = req.user; // gets the username from the authenticated user
   try {
-    res.send(`Welcome , ${userName}!`);
+    res.send(`Welcome  ${userName}! Time for your task ✨`);
   } catch (err) {
     res.status(400).json({
       success: false,
