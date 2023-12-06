@@ -3,6 +3,17 @@ const router = express.Router();
 import bcrypt from 'bcrypt';
 import User from '../models/User';
 
+const authenticateUser = async (req, res, next) => {
+  const user = await User.findOne({ accessToken: req.header('Authorization') });
+
+  if (user) {
+    req.user = user;
+    next();
+  } else {
+    res.status(401).json({ loggedOut: true });
+  }
+};
+
 //Route to register (POST)
 router.post('/register', async (req, res) => {
   const { userName, email, password } = req.body;
@@ -46,6 +57,7 @@ router.post('/register', async (req, res) => {
 });
 
 //Route to log-in (POST)
+
 router.post('/login', async (req, res) => {
   const { userName, password } = req.body;
 
@@ -75,4 +87,24 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//testing authentication
+// router.get('/secrets', authenticateUser);
+// router.get('/secrets', (req, res) => {
+//   res.json({ secret: 'Login' });
+// });
+
+router.get('/secrets', authenticateUser);
+router.get('/secrets', authenticateUser, (req, res) => {
+  const { userName } = req.user; // gets the username from the authenticated user
+  try {
+    res.send(`Welcome , ${userName}!`);
+  } catch (err) {
+    res.status(400).json({
+      success: false,
+      response: {
+        errors: err.errors,
+      },
+    });
+  }
+});
 export default router;
