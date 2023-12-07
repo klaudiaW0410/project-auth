@@ -1,4 +1,8 @@
 :root {
+  --background-color: white;
+  --font-color: black;
+  --primary-color: blue;
+  --secondary-color: lightblue;
 }
 
 body {
