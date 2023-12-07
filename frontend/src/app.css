@@ -1,0 +1,18 @@
+:root {
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  min-width: 95dvw;
+  max-width: 600px;
+  margin: 10px;
+  height: 95dvh;
+  background-color: white;
+  border: solid black 2px;
+  border-radius: 20px;
+}
