@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 :root {
   --background-color: white;
   --font-color: black;
-  --primary-color: blue;
+  --primary-color: #72A0C1;
   --secondary-color: lightblue;
 }
 
@@ -23,8 +25,18 @@ body {
   margin: 10px auto;
   height: 95dvh;
   background-color: white;
-  border: solid black 2px;
+  border: solid black 1px;
   border-radius: 20px;
+  font-family: Ubuntu, sans-serif;
   position: relative;
-  overflow: hidden; /* Hide any content that overflows */
+}
+
+.the-animation {
+  position: absolute;
+  top: 40dvh;
+}
+
+.the-buttons {
+  position: absolute;
+  bottom: 10dvh;
 }

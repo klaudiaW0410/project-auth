@@ -1,0 +1,27 @@
+.sign-up-container{
+    display: flex;
+    justify-content: space-between;
+    width: 95dvw;
+}
+
+.sign-button{
+    height: 10dvh;
+    width: 45dvw;
+    font-size: 1.5em;
+}
+.sign-up-button{
+    background-color: var(--secondary-color);
+    font-family: Ubuntu, sans-serif;
+    
+    border: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.log-in-button{
+    background-color: var(--primary-color);
+
+    border: none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+
+}

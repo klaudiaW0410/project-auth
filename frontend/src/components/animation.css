@@ -1,0 +1,8 @@
+.lottie-animation{
+    width: 125%;
+    /* transform: translate(-17dvw, -2dvh); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
