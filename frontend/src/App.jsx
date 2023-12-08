@@ -4,7 +4,6 @@ import "./app.css"
 
 export const App = () => {
   return (
-
     <BrowserRouter>
       <main>
         <Routes>
