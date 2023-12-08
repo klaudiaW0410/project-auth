@@ -12,9 +12,10 @@ mongoose.Promise = Promise;
 // PORT=9000 npm start
 const port = process.env.PORT || 8080;
 const app = express();
+const listEndpoints = require('express-list-endpoints');
 
-import routeTest from './routes/route';
 import userRoute from './routes/users';
+import taskRoute from './routes/tasks';
 
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
@@ -28,12 +29,12 @@ app.use((req, res, next) => {
   }
 });
 
-app.use('/', routeTest);
 app.use('/', userRoute);
+app.use('/', taskRoute);
 
 // Start defining your routes here
 app.get('/', (req, res) => {
-  res.send('Hello Technigo!');
+  res.send(listEndpoints(app));
 });
 
 // Start the server
