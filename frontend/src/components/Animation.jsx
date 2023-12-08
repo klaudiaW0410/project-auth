@@ -5,7 +5,11 @@ import './animation.css'
 export const Animation = () => {
     return(
         <>
-            {<Lottie className="lottie-animation" animationData={womanAnimation} loop={true} />}
+            {<Lottie 
+                className="lottie-animation" 
+                animationData={womanAnimation} 
+                loop={true} 
+            />}
         </>
     )
 }

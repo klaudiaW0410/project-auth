@@ -1,15 +1,17 @@
 // Task.js
+import Lottie from "lottie-react";
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 
 import { taskStore } from '../stores/taskStore';
 import { userStore } from '../stores/userStore'; 
-import { Input } from './Input';
+import { Input } from '../components/Input';
 
-import Lottie from "lottie-react";
 import animationToDo from "../assets/animationToDo.json";
 
 import './Task.css';
+
 
 export const Task = () => {
 

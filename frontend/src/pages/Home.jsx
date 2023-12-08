@@ -7,7 +7,9 @@ export const Home = () => {
     return(
         <>
             <div className="app-container">
+                
                     {<Header />}
+                
                 <div className="the-animation">
                     {<Animation />}
                 </div>

@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Header } from '../components/Header'
 
+import './sign-in-page.css'
+
 export const SignInPage = () => {
 
     const [ userName, setUserName ] = useState('')
@@ -32,25 +34,27 @@ export const SignInPage = () => {
     }
 
     return(
-        <div>
+        <div className="app-container">
             {<Header />}
-            <form onSubmit={event => event.preventDefault}>
+            <div className="input-container">
                 <input 
                     type='text' 
                     placeholder='username'
                     value = { userName }
                     onChange = { event => setUserName(event.target.value)}
-                 />
+                    />
                 <input 
                     type='password' 
                     placeholder='password'
                     value = { password }
                     onChange = { event => setPassword(event.target.value) }
-                 />
-                 <button onClick={onLoginClick}>
-                    Log in
-                 </button>
-            </form>
+                    />
+            </div>
+            <div className="button-container">
+                <button onClick={onLoginClick}>
+                Log in
+                </button>
+            </div>
         </div>
     )
 }

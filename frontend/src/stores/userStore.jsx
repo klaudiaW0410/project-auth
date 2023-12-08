@@ -72,11 +72,13 @@ export const userStore = create((set) => ({
 
       const data = await response.json()
       if (data.success) {
+        // Update the state with username and accessToken
         set({
           username,
           accessToken: data.response.accessToken,
           isLoggedIn: true,
-        }); // Update the state with username and accessToken
+        }); 
+
         // Redirect or update UI
         localStorage.setItem("accessToken", data.response.accessToken)
         alert("Login successful!")
@@ -91,9 +93,8 @@ export const userStore = create((set) => ({
     }
   },
   handleLogout: () => {
-    // Clear user information and set isLoggedIn to false
+    // Clear user information and changes isLoggedIn to false
     set({ username: "", accessToken: null, isLoggedIn: false })
     localStorage.removeItem("accessToken")
-    // Additional logout logic if needed
   },
 }));

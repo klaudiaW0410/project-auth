@@ -2,7 +2,7 @@ import { Route } from 'react-router-dom'
 
 import { Home } from '../pages/Home'
 import { SignInPage } from '../pages/SignInPage'
-import { Task } from '../components/Task'
+import { Task } from '../pages/Task'
 import { RegisterPage } from '../pages/RegisterPage'
 import { PageNotFound } from '../pages/PageNotFound'
 
