@@ -94,7 +94,7 @@ router.post('/login', async (req, res) => {
 // });
 
 router.get('/secrets', authenticateUser);
-router.get('/secrets', authenticateUser, (req, res) => {
+router.get('/secrets', (req, res) => {
   const { userName } = req.user; // gets the username from the authenticated user
   try {
     res.send(`Welcome  ${userName}! Time for your task ✨`);

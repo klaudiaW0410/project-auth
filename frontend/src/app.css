@@ -8,15 +8,21 @@
 }
 
 body {
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  height: 100vh; /* Set to occupy the full viewport height */
+  margin: 0; /* Reset margins for the body */
 }
 
 .app-container {
-  min-width: 95dvw;
-  max-width: 600px;
-  margin: 10px;
+  display: flex;
+  flex-direction: column; /* Set flex-direction to column to arrange flex items vertically */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 375px;
+  margin: 10px auto;
   height: 95dvh;
   background-color: white;
   border: solid black 1px;
