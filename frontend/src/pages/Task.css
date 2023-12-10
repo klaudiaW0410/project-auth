@@ -8,7 +8,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  overflow: hidden; /* Hide any content that overflows */
+  overflow: hidden;
 }
 
 /* Style for the Task wrapper */
@@ -21,7 +21,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  overflow: hidden; /* Hide any content that overflows */
+  overflow: auto;
 }
 
 .task-title {
@@ -31,18 +31,16 @@
   font-weight: bold;
 }
 .task-details {
-  /* position: fixed; */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr max-content;
   padding: 0.5rem;
+  margin-top: 2rem;
 }
 .task-name {
-  max-width: 300px;
+  max-width: 250px;
   overflow-wrap: break-word;
-}
-.task-time {
-  justify-self: end;
-  opacity: 0.5;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 
 h5 {
@@ -59,5 +57,10 @@ h5 {
 
 .task-button {
   background-color: var(--primary-color);
-  border-radius: 20px;
+  border-radius: 50px;
+}
+
+.delete-button {
+  grid-column-start: 2;
+  grid-column-end: 3;
 }

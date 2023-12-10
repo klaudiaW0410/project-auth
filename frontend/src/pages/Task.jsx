@@ -48,37 +48,29 @@ export const Task = () => {
           <div className="task-wrapper">
             {tasks.length === 0 ? (
               <>
-                <p>No tasks yet...</p>
+                <h5>No tasks yet...</h5>
               </>
             ) : (
               tasks.map((task, index) => (
                 <div
-                  className={`card-container ${task.done ? "green-border" : "red-border"}`}
+                  className={`task-details ${task.done ? "green-border" : "red-border"}`}
                   key={index}
                   onClick={() => handleEdit(task._id)}
                 >
-                  <p>
+                  <p className="task-name">
                     {task.task}
                   </p>
-                  <p>
+                  {/* <p>
                     {task.done ? "Task is completed" : "Not completed"}
-                  </p>
-                  <button
+                  </p> */}
+
+                  <button className=" delete-button"
                     onClick={() => deleteTaskById(task._id)}>
-                    Delete
+                    <img src="./delete.svg" alt="Delete" />
                   </button>
                 </div>
               ))
             )}
-          </div>
-          <div className="task-wrapper">
-            <h5>Your tasks for today:</h5>
-            {tasks.map((task, index) => (
-              <div key={index} className="task-details">
-                <p className="task-name">{task}</p>
-                <p className="task-time">13:00</p>
-              </div>
-            ))}
           </div>
           <Input onAddTask={handleAddTask} />
           <div className="button-wrapper">

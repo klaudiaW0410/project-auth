@@ -4,10 +4,10 @@ import { taskStore } from '../stores/taskStore';
 import './Input.css';
 
 export const Input = ({ onAddTask }) => {
-  const [ task, setTask ] = useState('');
+  const [task, setTask] = useState('');
   const { addTaskToServer } = taskStore()
 
-  const [ showInput, setShowInput ] = useState(false);
+  const [showInput, setShowInput] = useState(false);
 
   const taskInput = event => setTask(event.target.value)
 
@@ -22,6 +22,7 @@ export const Input = ({ onAddTask }) => {
       setShowInput(false);
       onAddTask(task); // Pass the task to the parent component
     }
+
   };
 
   return (
@@ -30,15 +31,19 @@ export const Input = ({ onAddTask }) => {
         <>
           <div className='input-wrapper'>
             <input
-              className = "input-input"
+              className="input-input"
               type="text"
               placeholder="Enter task..."
               value={task}
               onChange={taskInput}
             />
-            <button 
-              className="add-button" 
-              onClick={handleAddTask}>
+            <button
+              className="add-button"
+              onClick={() => {
+                console.log('Button clicked!');
+                handleAddTask();
+              }}
+            >
               Add
             </button>
           </div>
@@ -46,7 +51,7 @@ export const Input = ({ onAddTask }) => {
       )}
       <div className="button-task">
         <button onClick={handleButtonClick}>
-          <img className="button-image" src="./add.svg" alt="Contact" />
+          <img className="button-image" src="./add.svg" alt="Add" />
         </button>
       </div>
     </div>

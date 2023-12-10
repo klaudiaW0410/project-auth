@@ -39,12 +39,16 @@ export const taskStore = create((set) => ({
   // New action to add a task to the server and then to the store
   addTaskToServer: async (task) => {
     try {
+
+      console.log(JSON.stringify({ task: task }))
       const response = await fetch(`${apiEnv}/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: localStorage.getItem("accessToken"),
+
         },
-        body: JSON.stringify({ task: task }),
+        body: JSON.stringify({ task: task })
       });
       const data = await response.json();
 
@@ -60,29 +64,29 @@ export const taskStore = create((set) => ({
     }
   },
   // New action to add a task to the server and then to the store
-  addTaskToServerNEW: async (task) => {
-    try {
-      const response = await fetch(`${apiEnv}/add`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ task: task }),
-      });
-      const data = await response.json();
+  // addTaskToServerNEW: async (task) => {
+  //   try {
+  //     const response = await fetch(`${apiEnv}/add`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ task: task }),
+  //     });
+  //     const data = await response.json();
 
-      if (response.ok) {
-        set((state) => ({
-          tasks: [...state.tasks, { task: data.task, _id: data._id }], // Adjust the structure
-        }));
-        // ...
-      } else {
-        console.error("Failed to add task");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  },
+  //     if (response.ok) {
+  //       set((state) => ({
+  //         tasks: [...state.tasks, { task: data.task, _id: data._id }], // Adjust the structure
+  //       }));
+  //       // ...
+  //     } else {
+  //       console.error("Failed to add task");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // },
   // New action to update the boolean is done value in the store -
   handleEdit: async (id) => {
     try {
