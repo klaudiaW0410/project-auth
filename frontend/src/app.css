@@ -29,6 +29,7 @@ body {
   height: 95dvh;
   background-color: white;
   border: solid black 1px;
+  box-shadow: lightgrey 10px 10px 10px;
   border-radius: 20px;
   font-family: Ubuntu, sans-serif;
   position: relative;

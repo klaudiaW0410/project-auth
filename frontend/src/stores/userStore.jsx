@@ -29,7 +29,6 @@ export const userStore = create((set) => ({
     }
 
     try {
-      // console.log(JSON.stringify({email: email, userName: username, password: password}))
       const response = await fetch(`${apiEnv}/register`, {
         method: "POST",
         headers: {
@@ -47,7 +46,7 @@ export const userStore = create((set) => ({
         console.log("Signing up with:", username)
       } else {
         // Display error message from server
-        alert(data.response || "Signup failed")
+        alert(JSON.stringify(data.response) || "Signup failed")
       }
     } catch (error) {
       console.error("Signup error:", error)
@@ -87,7 +86,7 @@ export const userStore = create((set) => ({
         console.log("Logging in with:", username, password)
       } else {
         // Display error message from server
-        alert(data.response || "Login failed")
+        alert(JSON.stringyfy(data.response) || "Login failed")
       }
     } catch (error) {
       console.error("Login error:", error)
