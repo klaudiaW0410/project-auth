@@ -39,6 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  cursor: pointer;
 }
 
 .the-animation {
@@ -51,4 +52,16 @@ body {
 .the-buttons {
   grid-row: 3/4;
   position: absolute;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  padding: 1rem;
+}
+
+input {
+  padding: 1rem;
+  border-radius: 2rem;
+  border: none;
 }

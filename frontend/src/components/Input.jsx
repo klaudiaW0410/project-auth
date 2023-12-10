@@ -30,6 +30,7 @@ export const Input = ({ onAddTask }) => {
         <>
           <div className='input-wrapper'>
             <input
+              className = "input-input"
               type="text"
               placeholder="Enter task..."
               value={task}
@@ -45,7 +46,7 @@ export const Input = ({ onAddTask }) => {
       )}
       <div className="button-task">
         <button onClick={handleButtonClick}>
-          <img src="./add.svg" alt="Contact" />
+          <img className="button-image" src="./add.svg" alt="Contact" />
         </button>
       </div>
     </div>

@@ -21,6 +21,8 @@ export const RegisterPage = () => {
         try {
             await storeHandleRegister(userName, email, password)
             if (userName && password) {
+                const appContainer = document.getElementById("app-container")
+                appContainer.innerText = `Registration successful`
                 navigate('/') //REPLACE WITH DESIRED PATH???
             }
         } catch (error) {
@@ -30,27 +32,33 @@ export const RegisterPage = () => {
     }
 
     return(
-        <>
+        <div className="app-container" id="app-container">
             {<Header />}
-            <input 
-                type="text"
-                placeholder="username"
-                value={userName}
-                onChange={event => setUserName(event.target.value)}
-            />
-            <input 
-                type="text"
-                placeholder="email"
-                value={email}
-                onChange={event => setEmail(event.target.value)}
-            />
-            <input 
-                type="password"
-                placeholder="password"
-                value={password}
-                onChange={event => setPassword(event.target.value)}
-            />
-            <button onClick={onRegisterClick}>Register</button>
-        </>
+            <div className="input-container">
+                <input 
+                    type="text"
+                    placeholder="username"
+                    value={userName}
+                    onChange={event => setUserName(event.target.value)}
+                />
+                <input 
+                    type="text"
+                    placeholder="email"
+                    value={email}
+                    onChange={event => setEmail(event.target.value)}
+                />
+                <input 
+                    type="password"
+                    placeholder="password"
+                    value={password}
+                    onChange={event => setPassword(event.target.value)}
+                />
+            </div>
+            <div className="button-container">
+                <button onClick={onRegisterClick}>
+                    Register
+                </button>
+            </div>
+        </div>
     )
 }

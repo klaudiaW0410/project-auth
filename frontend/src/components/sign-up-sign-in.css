@@ -8,6 +8,7 @@
     height: 10dvh;
     width: 45dvw;
     font-size: 1.5em;
+    cursor: pointer;
 }
 .sign-up-button{
     background-color: var(--secondary-color);
@@ -16,6 +17,7 @@
     border: none;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    cursor: pointer;
 }
 .log-in-button{
     background-color: var(--primary-color);
@@ -23,5 +25,5 @@
     border: none;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
-
+    cursor: pointer;
 }

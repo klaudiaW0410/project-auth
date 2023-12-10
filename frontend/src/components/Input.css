@@ -15,27 +15,22 @@
   background: none;
   border: none;
 }
-button {
-  border: none;
-  background-color: transparent;
-  padding: 1rem;
-}
-img {
+
+.button-image {
   display: block;
   margin: 0 auto;
   height: 5rem;
   cursor: pointer;
 }
 
-img:hover {
+.button-image:hover {
   opacity: 0.8;
 }
-input {
-  padding: 1rem;
-  /* flex: 1; */
-  border-radius: 2rem;
-  border: none;
+
+.input-input {
+  flex: 1;
 }
+
 .input-wrapper {
   display: flex;
   justify-content: space-between;
