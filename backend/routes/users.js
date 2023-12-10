@@ -19,8 +19,8 @@ router.post('/register', async (req, res) => {
   const { userName, email, password } = req.body;
 
   //Validate email
-  //   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}s/i;
-  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}s/i;
+  // const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
   if (!emailRegex.test(email)) {
     return res.status(400).json({

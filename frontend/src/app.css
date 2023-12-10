@@ -58,6 +58,7 @@ button {
   border: none;
   background-color: transparent;
   padding: 1rem;
+  cursor: pointer;
 }
 
 input {

@@ -23,7 +23,7 @@ export const RegisterPage = () => {
             if (userName && password) {
                 const appContainer = document.getElementById("app-container")
                 appContainer.innerText = `Registration successful`
-                navigate('/') //REPLACE WITH DESIRED PATH???
+                navigate('/')
             }
         } catch (error) {
             console.log('Signup error:', error)
