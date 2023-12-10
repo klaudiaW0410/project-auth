@@ -21,19 +21,21 @@ export const userStore = create((set) => ({
 
 
   // FUNCTION TO REGISTER USERS
-  handleSignup: async (username, password, email) => {
+  handleSignup: async (username, email, password) => {
+    
     if (!username || !password || !email) {
       alert("Please enter username, email and password")
       return
     }
 
     try {
+      // console.log(JSON.stringify({email: email, userName: username, password: password}))
       const response = await fetch(`${apiEnv}/register`, {
         method: "POST",
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
-        body: JSON.stringify({ email, username, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email, userName: username, password: password })
       })
 
       const data = await response.json()
@@ -67,7 +69,7 @@ export const userStore = create((set) => ({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ userName: username, password: password }),
       })
 
       const data = await response.json()
