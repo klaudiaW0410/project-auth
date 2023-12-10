@@ -30,9 +30,9 @@ export const userStore = create((set) => ({
     try {
       const response = await fetch(`${apiEnv}/register`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        // headers: {
+        //   "Content-Type": "application/json",
+        // },
         body: JSON.stringify({ email, username, password }),
       })
 
