@@ -42,7 +42,7 @@ export const Task = () => {
       <div className="app-container">
         <div className="task-container">
           <div className="task-header">
-            <h5 className="task-title">Hello ...</h5>
+            <h5 className="task-title">Hello add your task:</h5>
             {/* <Lottie animationData={animationToDo} />; */}
           </div>
           <div className="task-wrapper">
